@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Asynchronous</title>
+
+<style type="text/css">
+#loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+
+</head>
+<body>
+	<div id="demo"></div>
+	<div id="loader"></div>
+</body>
+
+<script type="text/javascript">
+
+function loadingData(callback_function){
+	function print() {
+	    document.getElementById("demo").innerHTML="RUNOOB!";
+	}
+	setTimeout(print, 3000);
+	callback_function();
+}
+
+function hideLoadingCircle() {
+	document.getElementById("loader").style.display="none";
+	console.log("COMPLETED");
+}
+
+
+loadingData(hideLoadingCircle);
+</script>
+
+</html>

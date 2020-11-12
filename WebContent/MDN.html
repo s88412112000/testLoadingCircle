@@ -1,0 +1,85 @@
+<!-- https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/async_function -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+<style type="text/css">
+#loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  display:none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ 
+</style>
+</head>
+</head>
+<body>
+
+
+<button onclick="loadData()">開始</button>
+
+<div id="result"></div>
+
+<div id="loader"></div>
+
+
+</body>
+
+
+
+<script type="text/javascript">
+function resolveAfter2Seconds(x) {
+	  return new Promise(resolve => {
+	    setTimeout(() => {
+	      resolve(x);
+	    }, 2000);
+	  });
+	}
+
+
+async function add1(x) {
+  const a = await resolveAfter2Seconds(20);
+  const b = await resolveAfter2Seconds(30);
+  return x + a + b;
+}
+
+	
+
+
+async function add2(x) {
+  const p_a = resolveAfter2Seconds(20);
+  const p_b = resolveAfter2Seconds(30);
+  return x + await p_a + await p_b;
+}
+
+	
+	
+function loadData(){
+	 
+	 document.getElementById("loader").style.display="block";
+	
+	add1(10).then(v => {
+		  console.log(v);  // prints 60 after 4 seconds.
+		  document.getElementById("result").innerHTML=document.getElementById("result").innerHTML+v+"<br>";
+		  document.getElementById("loader").style.display="none";
+		});
+	
+	add2(10).then(v => {
+		  console.log(v);  // prints 60 after 2 seconds.
+		  document.getElementById("result").innerHTML=document.getElementById("result").innerHTML+v+"<br>";
+		});
+}
+
+</script>
+</html>

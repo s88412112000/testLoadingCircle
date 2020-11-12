@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div>凍結那時間，凍結初遇那一天</div>
+    <div id="newContent"></div>
+  </body>
+  <script>
+
+	 function getAPIResponse () {
+		 var delay = 3000 // 凍結 3 秒
+		    var end = +new Date() + delay*2
+		    console.log('delay start')
+		    while(new Date() < end) {
+				document.getElementById("newContent").innertHTML="345";
+		    }
+		    console.log('delay end')
+	}
+	 
+	 
+	getAPIResponse(function(err, response) {
+	  console.log(response)
+	});
+
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+<title>動手實現一個網頁載入進度loading</title>
+<script type="text/javascript" src="catalog/view/javascript/jquery/jquery-1.6.1.min.js"></script>
+<style type="text/css">
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.loadersmall{
+    border: 5px solid #f3f3f3;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    border-top: 5px solid #555;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ 
+
+</style>
+ 
+
+</head>
+<body>
+
+
+<div class="loader"></div>
+
+<br><br><br><br>
+
+
+<div class="loadersmall"></div>
+
+<br><br><br><br>
+參考資料：<a href="https://www.w3schools.com/howto/howto_css_loader.asp" target="_blank">w3schools - How To Make a Loader</a>
+
+</body>
+</html>
